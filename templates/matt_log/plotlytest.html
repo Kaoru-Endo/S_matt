@@ -1,0 +1,8 @@
+{% extends 'base/base.html' %}
+{% block content %}
+  <h2>リモート在庫管理システム(デモ)</h2>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  {% autoescape off %}
+    {{ plot }}
+  {% endautoescape %}
+  {% endblock %}

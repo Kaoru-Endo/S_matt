@@ -1,0 +1,9 @@
+*.pyc
+*~
+/.vscode
+__pycache__
+db.sqlite3
+.DS_Store
+DataPost.py
+
+manage.py
