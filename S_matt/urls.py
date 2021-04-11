@@ -23,9 +23,10 @@ from django.views.generic.base import RedirectView
 from matt_log.urls import router as matt_log_router
 
 
+
 urlpatterns = [
-    path("",  include('matt_log.urls')),
+    path("", include('matt_log.urls')),
     url(r'admin/', admin.site.urls),
     url(r'^api/', include(matt_log_router.urls)),
-    path('log/', include('matt_log.urls')),
+#    path('log/', include('matt_log.urls')),
     ]

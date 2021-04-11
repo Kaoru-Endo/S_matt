@@ -29,29 +29,32 @@ class Log_dataViewSet(viewsets.ModelViewSet):
 
 def plotlytestviews(request):
 
+    if request.method == 'POST':
+        matt_num = request.POST['matt_id']
+    else:
+        matt_num = 1
 
-    log_data_list = Log_data.objects.all().filter(s_matt_id = 1)
-
+    log_data_list = Log_data.objects.all().filter(s_matt_id = matt_num)
     a=[]
     b=[]
-
-    print("+++++++++++++")
     for data in log_data_list:
         a.append(data.created_at + datetime.timedelta(hours=9))
         b.append(data.quantity)
-        print(a, b)
-    print("=============")
-
 
     plot = plotlytest_graph(a,b)
 
-    return render(request, 'matt_log/plotlytest.html', {'plot': plot})
+    matt = Matt.objects.values('name').get(matt_id = matt_num)
+    print(type(matt))
+    print(matt)
+
+    return render(request, 'matt_log/plotlytest.html', {'plot': plot, 'matt': matt})
 
 def log_graph(request):
     log_data_list = Log_data.objects.all()
 
     plot = plot_graph(log_data_list)
 
-    return render(request, 'matt_log/plotlytest.html', {'plot': plot})
+
+    return render(request, 'matt_log/plotlytest.html', { 'plot': plot,})
 
 
