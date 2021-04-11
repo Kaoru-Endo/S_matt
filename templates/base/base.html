@@ -1,50 +1,68 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
+<html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-language" content="ja">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<!--    <meta http-equiv="refresh" content="1"> 
--->
-    {% block meta_tag %}{% endblock %}
-    <link href="{% static 'css/semantic.css' %}" rel="stylesheet">
-    {% block css %}{% endblock %} 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> {% block css %}{% endblock %}
     <title>
-        {% block title %} リモート在庫管理システム(デモ){% endblock %}
+        {% block title %}在庫管理システム{% endblock %}
     </title>
 </head>
+
 <body>
-    <div class="ui stackable inverted menu">
-        <div class="header item">
-            リモート在庫管理システム(デモ)
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary sticky-top">
+        <a class="navbar-brand" href="#">在庫管理システム</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <!--            <li class="nav-item dropdown disabled">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">保守部品選択<span class="sr-only">(current)</span></a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">保守部品Ａ</a>
+                <a class="dropdown-item" href="#">保守部品Ｂ</a>
+                <a class="dropdown-item" href="#">保守部品Ｃ</a>
+                <a class="dropdown-item" href="#">保守部品Ｄ</a>
+              </div>
+            </li>
+-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">MSKマット設定</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ログイン</a>
+                </li>
+            </ul>
         </div>
-        <a class="item">
-            このサイトの説明
-        </a>
-        <div class="right menu">
-            <a class="item">
-                Log in
-            </a>
-            <a class="item">
-                Sign up
-            </a>
+    </nav>
+
+    <div class="container-fluid bg-light">
+
+        <div class="container-fluid bg-light">
+            {% block content %} {% endblock %}
         </div>
     </div>
-    
-    <div class="ui container" style="min-height:100vh;">
-        {% block content %}
-        {% endblock %}
-    </div>
-    <div class="ui inverted stackable footer segment">
-        <div class="ui container center aligned">
-            <div class="ui horizontal inverted small divided link list">
-                <a class="item">©MSK リモート在庫管理システム</a>
-                <a class="item">利用規約</a>
-                <a class="item">プライバシーポリシー</a>
-            </div>
+    <div class="fixed-bottom">
+        <div class="container-fluid bg-secondary text-white" style="height:30px">
+            <h6>
+                <p class="text-center">
+                    ©MSK リモート在庫管理システム
+                </p>
+            </h6>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/semantic.js' %}"></script>
-    {% block js %}{% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
+
+</html>
