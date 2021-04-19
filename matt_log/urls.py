@@ -5,14 +5,13 @@ from django.urls import path
 from rest_framework import routers
 from .views import UserViewSet, MattViewSet, Log_dataViewSet
 from . import views
-from .views import plotlytestviews, log_graph
+from .views import log_graph
 
 app_name='matt_log'
 
 urlpatterns = [
-    path('', plotlytestviews, name="plotlytest"),
-    path('plotlytest/', plotlytestviews, name = 'plotlytest'),
-    path('log_graph/', log_graph, name = 'Log_graph'),
+    path('', log_graph, name="log_graph"),
+    path('log_graph/', log_graph, name = 'log_graph'),
 ]
 
 

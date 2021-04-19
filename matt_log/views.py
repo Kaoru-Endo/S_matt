@@ -11,7 +11,7 @@ from .serializer import UserSerializer, MattSerializer, Log_dataSerializer
 
 from django.views.generic import TemplateView
 import plotly.graph_objects as go
-from .plotgraph import plotlytest_graph, plot_graph
+from .plotgraph import log_graph_plot
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -27,12 +27,14 @@ class Log_dataViewSet(viewsets.ModelViewSet):
     serializer_class = Log_dataSerializer
 
 
-def plotlytestviews(request):
+def log_graph(request):
 
     if request.method == 'POST':
         matt_num = request.POST['matt_id']
+        Auto = request.POST['Auto']
     else:
         matt_num = 1
+        Auto = ""
 
     log_data_list = Log_data.objects.all().filter(s_matt_id = matt_num)
     a=[]
@@ -41,20 +43,11 @@ def plotlytestviews(request):
         a.append(data.created_at + datetime.timedelta(hours=9))
         b.append(data.quantity)
 
-    plot = plotlytest_graph(a,b)
+    plot = log_graph_plot(a,b)
 
     matt = Matt.objects.values('name').get(matt_id = matt_num)
     print(type(matt))
     print(matt)
 
-    return render(request, 'matt_log/plotlytest.html', {'plot': plot, 'matt': matt})
-
-def log_graph(request):
-    log_data_list = Log_data.objects.all()
-
-    plot = plot_graph(log_data_list)
-
-
-    return render(request, 'matt_log/plotlytest.html', { 'plot': plot,})
-
+    return render(request, 'matt_log/plotlytest.html', {'plot': plot, 'matt': matt, 'Auto':Auto,})
 

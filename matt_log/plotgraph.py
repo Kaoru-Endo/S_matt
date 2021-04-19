@@ -7,7 +7,7 @@ import pandas as pd
 from S_matt.settings import BASE_DIR
 import os
 
-def plotlytest_graph(a,b):
+def log_graph_plot(a,b):
 
     data_x = a
     data_y = b
@@ -25,7 +25,3 @@ def plotlytest_graph(a,b):
     fig.update_layout(title_text='在庫数推移')
     plot_fig = plot(fig, output_type='div', include_plotlyjs=False)
     return plot_fig
-
-def plot_graph(object_list):
-
-    return
