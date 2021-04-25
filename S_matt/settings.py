@@ -26,7 +26,7 @@ SECRET_KEY = '+=oubd_%#it&8t!8bgj%0gxh7vm+v-(!ob2c8-122lf5s$01v9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.199.98.143','172.17.35.225', '127.0.0.1', '192.168.0.7', 'kaoruendo.pythonanywhere.com']
+ALLOWED_HOSTS = ['s-matt.msk-iot.com', '52.199.98.143','172.17.35.225', '127.0.0.1', '192.168.0.7', 'kaoruendo.pythonanywhere.com']
 
 
 # Application definition

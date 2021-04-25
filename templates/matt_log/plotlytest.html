@@ -2,19 +2,38 @@
 
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<h3> 物品名：{{ matt.name }} </h3>
-{% autoescape off %} {{ plot }} {% endautoescape %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 skyblue">
+            {% autoescape off %} {{ plot1 }} {% endautoescape %}
+        </div>
+        <div class="col-lg-6 skyblue">
+            {% autoescape off %} {{ plot2 }} {% endautoescape %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 skyblue">
+            {% autoescape off %} {{ plot3 }} {% endautoescape %}
+        </div>
+        <div class="col-lg-6 skyblue">
+            {% autoescape off %} {{ plot4 }} {% endautoescape %}
+        </div>
+    </div>
+</div>
 
-<div class="container" style="height:50px">
+<!--
+<div class="container" style="height:70px">
     <form class="s_matt_id_input " method='POST'>{% csrf_token %}
         <input type="text" placeholder="マット番号選択 " name='matt_id'>
-
+        
         <select id="id_choice1" name="Auto">
             <option value=True>自動更新：ON</option>
             <option value=False selected>自動更新：OFF</option>
           </select>
+        
         <button type="submit "> 選択 </button>
     </form>
 </div>
+-->
 
 {% include 'base/sidebar.html' %} {% endblock %}
